@@ -11,6 +11,7 @@
 
 #include"gpio.h"
 #include "keypad.h"
+#include <util/delay.h>
 /*******************************************************************************
  *                      Functions Prototypes(Private)                          *
  *******************************************************************************/
@@ -66,10 +67,12 @@ uint8 KEYPAD_getPressedKey(void)
 					return KEYPAD_4x4_adjustKeyNumber((currentRow * KEYPAD_NUM_OF_COLUMNS)+currentColumn+1);
 #endif
 				}
+				_delay_ms(10);
 			}
 			GPIO_setupPinDirection(KEYPAD_PORT, (KEYPAD_ROW_START_PIN + currentRow), PIN_INPUT);
+		_delay_ms(10);
 		}
-		_delay_ms(50);
+		
 	}
 }
 
