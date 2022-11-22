@@ -34,6 +34,9 @@
 /*CLEARING THE WHOLE REGISTER (WHOLE REGISTER = 0X00)*/
 #define CLEAR_ALL(REG)				(REG=0x00)
 
+/* INSERTING A VALUE IN THE SPECIFIED REGISTER */
+#define INSERT_VALUE(REG, value)	(	REG = ( (REG & 0x00) | (value) )	)
+
 /* INSERTING A 4 bit VALUE IN THE LAST 4 MOST SIGNIFICANT BITS --> LAST 4 BITS
  *  without affecting rest of pins*/
 #define INSERT_IN_4MSB(REG, value)	(REG = ((REG & 0x0F) | (value<<4)))
